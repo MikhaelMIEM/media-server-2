@@ -9,18 +9,18 @@
 		<artifactId>kurento-tutorial</artifactId>
 		<version>6.15.0</version>
 	</parent>
-	<artifactId>kurento-hello-world</artifactId>
+	<artifactId>kurento-player</artifactId>
 	<packaging>jar</packaging>
 
 	<!-- Project-level information -->
-	<name>Kurento Java Tutorial - Hello World</name>
-	<description>Hello World (WebRTC in loopback)</description>
+	<name>Kurento Java Tutorial - Player</name>
+	<description>Play of a video through WebRTC</description>
 
 	<!-- Project configuration -->
 
 	<properties>
 		<demo.port>8443</demo.port>
-		<start-class>org.kurento.tutorial.helloworld.Application</start-class>
+		<start-class>org.kurento.tutorial.player.PlayerApp</start-class>
 	</properties>
 
 	<dependencies>
@@ -33,14 +33,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-websocket</artifactId>
 		</dependency>
-
-		<!-- Development -->
-		<!-- Do "mvn compile" to trigger the automatic application restart -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency> -->
 
 		<!-- WebJars -->
 		<dependency>
@@ -84,25 +76,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-
-					<!-- Development -->
-					<!-- <addResources>false</addResources>
-					<folders>
-						<folder>src/main/resources</folder>
-					</folders> -->
-
-				</configuration>
 			</plugin>
 		</plugins>
 
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>src/main/resources-filtered</directory>
+				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
+				<includes>
+					<include>application.properties</include>
+					<include>banner.txt</include>
+				</includes>
 			</resource>
 		</resources>
 	</build>
@@ -157,5 +145,4 @@
 			<id>no-assembly</id>
 		</profile>
 	</profiles>
-
 </project>

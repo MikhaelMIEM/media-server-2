@@ -1,20 +1,21 @@
 /*
- * Copyright 2018 Kurento (https://www.kurento.org)
+ * (C) Copyright 2015 Kurento (http://kurento.org/)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
-package org.kurento.tutorial.helloworld;
+package org.kurento.tutorial.player;
 
 import org.kurento.client.KurentoClient;
 import org.springframework.boot.SpringApplication;
@@ -26,21 +27,22 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
 /**
- * Kurento Java Tutorial - Application entry point.
+ * Play of a video through WebRTC (main).
+ *
+ * @author Boni Garcia (bgarcia@gsyc.es)
+ * @since 6.1.1
  */
-@SpringBootApplication
 @EnableWebSocket
-public class Application implements WebSocketConfigurer
-{
+@SpringBootApplication
+public class PlayerApp implements WebSocketConfigurer {
+
   @Bean
-  public Handler handler()
-  {
-    return new Handler();
+  public PlayerHandler handler() {
+    return new PlayerHandler();
   }
 
   @Bean
-  public KurentoClient kurentoClient()
-  {
+  public KurentoClient kurentoClient() {
     return KurentoClient.create();
   }
 
@@ -52,13 +54,11 @@ public class Application implements WebSocketConfigurer
   }
 
   @Override
-  public void registerWebSocketHandlers(WebSocketHandlerRegistry registry)
-  {
-    registry.addHandler(handler(), "/helloworld");
+  public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+    registry.addHandler(handler(), "/player");
   }
 
-  public static void main(String[] args) throws Exception
-  {
-    SpringApplication.run(Application.class, args);
+  public static void main(String[] args) throws Exception {
+    SpringApplication.run(PlayerApp.class, args);
   }
 }

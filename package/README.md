@@ -6,7 +6,7 @@
 ${project.name}
 ======================
 
-The ${project.name} shows how to build a WebRTC in loopback application with Kurento.
+The ${project.name} shows how to build a WebRTC one to many video call application with Kurento.
 
 Installation instructions
 -------------------------
