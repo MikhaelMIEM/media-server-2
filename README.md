@@ -7,10 +7,10 @@
 
 Copyright © 2013-2016 [Kurento]. Licensed under [Apache 2.0 License].
 
-kurento-one2many-call
-=====================
+kurento-hello-world
+===================
 
-Kurento Java Tutorial: WebRTC one to many video call.
+Kurento Java Tutorial: Hello World (WebRTC in loopback).
 
 Running this tutorial
 ---------------------
@@ -119,4 +119,4 @@ Before asking for support, please read first the [Kurento Netiquette Guidelines]
 [readthedocs.org]: http://kurento.readthedocs.org/
 [Open API specification]: http://kurento.github.io/doc-kurento/
 [apiary.io]: http://docs.streamoriented.apiary.io/
-[instructions]: http://www.kurento.org/docs/current/tutorials/java/tutorial-one2many.html
+[instructions]: http://www.kurento.org/docs/current/tutorials/java/tutorial-helloworld.html
