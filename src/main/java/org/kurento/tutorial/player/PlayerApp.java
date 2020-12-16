@@ -55,7 +55,7 @@ public class PlayerApp implements WebSocketConfigurer {
 
   @Override
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-    registry.addHandler(handler(), "/player");
+    registry.addHandler(handler(), "/player").setAllowedOrigins("*");
   }
 
   public static void main(String[] args) throws Exception {
