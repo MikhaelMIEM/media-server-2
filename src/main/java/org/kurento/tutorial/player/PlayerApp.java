@@ -26,6 +26,12 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
+/**
+ * Play of a video through WebRTC (main).
+ *
+ * @author Boni Garcia (bgarcia@gsyc.es)
+ * @since 6.1.1
+ */
 @EnableWebSocket
 @SpringBootApplication
 public class PlayerApp implements WebSocketConfigurer {
@@ -49,7 +55,7 @@ public class PlayerApp implements WebSocketConfigurer {
 
   @Override
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-    registry.addHandler(handler(), "/player");//.setAllowedOrigins("*");
+    registry.addHandler(handler(), "/player");
   }
 
   public static void main(String[] args) throws Exception {
