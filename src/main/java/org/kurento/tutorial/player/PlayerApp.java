@@ -49,7 +49,7 @@ public class PlayerApp implements WebSocketConfigurer {
 
   @Override
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-    registry.addHandler(handler(), "/player").setAllowedOrigins("*");
+    registry.addHandler(handler(), "/player");//.setAllowedOrigins("*");
   }
 
   public static void main(String[] args) throws Exception {
